@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Hang {
+  id        String  @id
+  profileId String
+  Profile   Profile @relation(fields: [profileId], references: [id])
+}
+
+model Profile {
+  id     String @id
+  userId String @unique
+  User   User   @relation(fields: [userId], references: [id])
+  Hang   Hang[]
+}
+
+model User {
+  id       String   @id
+  email    String   @unique
+  username String   @unique
+  password String
+  Profile  Profile?
+}
+
