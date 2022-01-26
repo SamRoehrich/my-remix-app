@@ -20,7 +20,7 @@ type ActionData = {
 		Username: string | undefined
 		Password: string | undefined
 	}
-	fields: {
+	fields?: {
 		Username: string
 		Password: string
 	}
