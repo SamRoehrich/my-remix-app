@@ -1,11 +1,7 @@
-import React from 'react'
+import { BasicProps } from '../../interface/BasicProps'
 import Header from './Header'
 
-interface Props {
-	children: React.ReactNode
-}
-
-export default function Layout({ children }: Props) {
+export default function Layout({ children }: BasicProps) {
 	return (
 		<div className="p-4">
 			<Header />
